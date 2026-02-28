@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeUdaan | Learn Smart</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="CodeUdaan - Learn C, Java, Python, HTML, CSS and Full Stack Development.">
+   <link rel="icon" href="https://raw.githubusercontent.com/Devidutta3/CodeUdaan/refs/heads/main/New_logo.png" type="image/svg+xml">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo" style="margin-right: 20px;"><img src="https://raw.githubusercontent.com/Devidutta3/CodeUdaan/refs/heads/main/New_logo.png" alt="CodeUdaan"> CodeUdaan</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="free.html">Free Courses</a>
+      <a href="courses.html">Advanced</a>
+      <a href="projects.html">Projects</a>
+      <a href="notes.html">Notes</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <!-- This is for Popup -->
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">✖</span>
+    <img src="https://raw.githubusercontent.com/Devidutta3/CodeUdaan/refs/heads/main/Popup.jpeg" alt="CodeUdaan Poster">
+    <a href="https://forms.gle/DYqjTfyiSPrzUDFX8" class="popup-btn">Register Now</a>
+  </div>
+</div>
+  </div>
+  <div id="pageLoader" style="display:none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <g class="segment" opacity="0">
+        <path id="loading-path"
+            d="M 94 25 C 94 21.686 96.686 19 100 19 C 103.314 19 106 21.686 106 25 L 106 50 C 106 53.314 103.314 56 100 56 C 96.686 56 94 53.314 94 50 Z">
+        </path>
+    </g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(45deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(90deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(135deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(180deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(225deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(270deg)" /></g>
+    <g class="segment" opacity="0"><use href="#loading-path" style="transform: rotate(315deg)" /></g>
+</svg>
+</div>
+  <section class="hero">
+
+    <div class="hero-left">
+      <h1>Learn Coding the Smart Way</h1>
+      <p>Free basics. Advanced courses. Real-world projects.</p>
+      <div style="display: flex; gap: 20px;">
+        <a href="free.html" class="btn">Start Free Learning</a>
+        <a href="courses.html" class="btn btn-secondary">Explore Courses</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+
+      <img src="https://cdn.shopify.com/s/files/1/0070/5901/3716/files/coding_vs_programming.jpg?v=1689328130"
+        class="hero-img img1">
+
+      <img src="https://t4.ftcdn.net/jpg/04/12/83/91/360_F_412839178_eBThjVy75lyoTMkjcaSZSgeaH91M9bse.jpg"
+        class="hero-img img2">
+
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuoRxx7n4cAYbVez5M8yuAbeUFBCOdxFOaA&s"
+        class="hero-img img3">
+
+      <img
+        src="https://s3.eu-west-1.amazonaws.com/redsys-prod/articles/eac8c6d69d1ce8ce0ff8824d/images/teaserImage_xxxx_croppedTeaserImage.jpg"
+        class="hero-img img4">
+
+    </div>
+
+  </section>
+
+
+  <section class="features">
+    <h2>Why Choose CodeUdaan?</h2>
+
+    <div class="card-container">
+
+      <div class="card">
+        <h3>Free Foundations</h3>
+        <p>C, Java, HTML, CSS, Python — Completely Free.</p>
+      </div>
+
+      <div class="card">
+        <h3>Advanced Training</h3>
+        <p>Full Stack & AI with structured roadmap.</p>
+      </div>
+
+      <div class="card">
+        <h3>Industry Projects</h3>
+        <p>Buy production-level systems like MedExplain.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 CodeUdaan | Code. Build. Lead.
+  </footer>
+  <!-- Popup  -->
+<script>
+function closePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+}
+</script>
+<!-- Scroll -->
+ <script type="module">
+import { animate, stagger } from "https://cdn.jsdelivr.net/npm/motion@12.34.0/+esm"
+
+const segments = document.querySelectorAll(".segment")
+const offset = 0.09
+const duration = segments.length * offset
+
+animate(
+    segments,
+    { opacity: [0, 1, 0] },
+    {
+        offset: [0, 0.1, 1],
+        duration,
+        delay: stagger(offset, { startDelay: -duration }),
+        repeat: Infinity,
+    }
+)
+
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+
+        const href = this.getAttribute("href")
+
+        if (!href || href.startsWith("#") || this.target === "_blank") return;
+
+        // Check if loader already shown before
+        if (sessionStorage.getItem("loaderShown") === "true") {
+            return; // Skip loader
+        }
+
+        e.preventDefault()
+
+        document.getElementById("pageLoader").style.display = "flex"
+
+        // Save flag so it never shows again
+        localStorage.setItem("loaderShown", "true")
+
+        setTimeout(() => {
+            window.location.href = href
+        }, 800)
+    })
+})
+</script>
+</body>
+
+</html>
